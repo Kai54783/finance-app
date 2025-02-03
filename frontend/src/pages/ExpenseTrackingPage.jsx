@@ -23,7 +23,7 @@ const ExpenseTrackingPage = () => {
     }
 
     // Send POST request to the backend
-    axios.post('http://localhost:5000/api/records', {
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/records`, {
       type,
       category,
       amount,

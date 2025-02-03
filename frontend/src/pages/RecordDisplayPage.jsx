@@ -9,7 +9,7 @@ const RecordDisplayPage = () => {
 
   // Fetch records when the component loads
   useEffect(() => {
-    axios.get('http://localhost:5000/api/records')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/records`)
       .then((response) => {
         console.log(response.data);  // Log data for debugging
         setRecords(response.data); // Set records to state
@@ -23,7 +23,7 @@ const RecordDisplayPage = () => {
 
   const handleDelete = (id) => {
     // Send delete request to backend API
-    axios.delete(`http://localhost:5000/api/records/${id}`)
+    axios.delete(`${import.meta.env.VITE_API_BASE_URL}/records/${id}`)
       .then(() => {
         // Remove the deleted record from local state
         setRecords(records.filter((record) => record._id !== id));
